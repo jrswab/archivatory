@@ -20,10 +20,11 @@ if (isset($_POST['submit'])) {
 				$fileDestination = 'uploads/'.$fileNameNew;
 				move_uploaded_file($fileTmpName, $fileDestination);
 				$output = shell_exec("ipfs add ".$fileDestination." 2>&1");
-				echo "<br />";
+				//echo $output."<br />";
 				$dicedOut = explode(' ', $output);
-				$hash = $dicedOut[6];
-				echo "<br />Copy & paste the line above. <br />Or <a href='https://ipfs.io/ipfs/".$hash."' target='_blank'>click here</a> to see your media in the IPFS gateway.";
+				end($dicedOut);
+				$hash = prev($dicedOut);
+				echo $hash."<br /><br />Copy & paste the line above. <br />Or <a href='https://ipfs.io/ipfs/".$hash."' target='_blank'>click here</a> to see your media in the IPFS gateway.";
 			} else {
 				echo "Your file is too big.";
 			}
