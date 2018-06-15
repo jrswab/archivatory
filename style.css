@@ -1,16 +1,21 @@
+html {
+	width:100%;
+	position: absolute;
+}
+
 body {
 	background-color: #f2f3f4;
 }
 
 .center {
-	display: block;
+	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	width: 50%;
 }
 
 #upload-form {
 	width: 50%;
+	text-align: center;
 	background-color: #e5e4e2;
 	padding: 10px;
 }
