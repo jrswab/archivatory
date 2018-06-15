@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 				$dicedOut = explode(' ', $output);
 				end($dicedOut);
 				$hash = prev($dicedOut);
-				echo $hash."<br /><br />Copy & paste the line above. <br />Or <a href='https://ipfs.io/ipfs/".$hash."' target='_blank'>click here</a> to see your media in the IPFS gateway.<br /><h2><a href='index.html'>Return To Upload.</a></h2>";
+				echo $hash."<head><title>Archivatory</title><link rel='stylesheet' type='text/css' href='style.css'></head><div class='container'><br /><br />Copy & paste the line above. <br />Or <a href='https://ipfs.io/ipfs/".$hash."' target='_blank'>click here</a> to see your media in the IPFS gateway.<br /><h2><a href='index.html'>Return To Upload.</a></h2></div>";
 			} else {
 				echo "Your file is too big.";
 			}
