@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Upload your files</title>
+		<title>Archivatory</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
-		<div class="center"> 
-			<img src="img/Archivatory_logo.png" />
+		<div class="container">
+			<img src="img/Archivatory_logo.png" /><br />
 			<form id="upload-form" enctype="multipart/form-data" action="hash.php" method="POST">
-				<h3>Upload your file</h3>
-				<input class="form-input" type="file" name="file"></input><br /></br>
+				<h2>Upload Your File</h2>
+				<input class="form-input" type="file" name="file" /><br /><br />
 				<button class="form-button" name="submit" type="submit">Upload</button>
 			</form>
+			<p class="columned">Created by <a href="https://jrswab.com/">J. R. Swab</a></p>
+			<p class="columned">Severs of this size are quite expensive; please consider donating STEEM or SBD to <a href="https://steemit.com/jrswab">@jrswab</a> in order to keep this service running. Be sure to add a memo to let us know the donation is for this project and we'll add your name to the coming "supporters" page.</p>
+			
+			<p class="columned">Donations help show that you would like to see further development on this project. Some things we'd like to include:  user signups so you can save your hashes for future reference, better user experience, and SteemConnect integration.</p>
 		</div>
 	</body>
 </html>
