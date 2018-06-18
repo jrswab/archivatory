@@ -59,7 +59,7 @@ body {
 	font-size: 22px;
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1100px) {
 	/* For Desktop Monitors */
 	#upload-form {
 	display:flex;
