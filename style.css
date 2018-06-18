@@ -21,6 +21,10 @@ body {
 }
 
 #upload-form {
+	display:flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
 	text-align: center;
 	background-color: #e5e4e2;
 	padding: 10px 0 10px 0;
