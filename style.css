@@ -1,3 +1,4 @@
+/* Mobile CSS */
 a:link {
 	color: #228b22;
 }
@@ -8,8 +9,8 @@ a:visited {
 
 body {
 	background-color: #f2f3f4;
-	width:100%;
 	position: absolute;
+	padding: 0 20px 0 20px;
 }
 
 .container {
@@ -27,22 +28,52 @@ body {
 	align-items: center;
 	text-align: center;
 	background-color: #e5e4e2;
-	padding: 10px 0 10px 0;
 	border-radius: 10px;
-	width: 67%;
+	width: 90%;
+}
+
+.inner-form {
+	border-radius: 10px;
+	background-color: #8fbc8f;
+	padding: 10px 30px;
+	
 }
 
 .form-button {
 	display: inline-block;
 	color: #ffffff;
-	width: 50%;
-	background-color: #8fbc8f;
+	background-color: #228b22;
 	border: none;
 	padding: 15px 32px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.disclaimer {
+	padding: 0 20px 0 20px;
 }
 
 .columned {
+	width: 90%;
+	font-size: 22px;
+}
+
+@media only screen and (min-width: 1080px) {
+	/* For Desktop Monitors */
+	#upload-form {
+	display:flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #e5e4e2;
+	border-radius: 10px;
 	width: 50%;
+	}
+	
+	.columned {
+	width: 50%;
+	font-size: 22px;
+	}
 }
