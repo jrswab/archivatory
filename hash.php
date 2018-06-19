@@ -49,22 +49,5 @@ if (isset($_POST['submit'])) {
 	} else {
 		echo "Sorry, the ".$fileActualExt." file type is not supported.";
 	}
-
-	$htmlOut = '<!DOCTYPE html>
-		<html>
-			<head>
-				<title>Archivatory</title>
-				<link rel="stylesheet" type="text/css" href="style.css">
-			</head>
-			<body>
-				<div class="container">
-					<img class="logo" src="img/Archivatory_logo.png" /><br />
-					<h3>'.$hash.'</h3>
-					<span>Copy and paste the line above to save a copy and use in your favorite decentralized application!</span>
-					<span>Or <a href="https://ipfs.io/ipfs/'.$hash.'" target="_blank">click here</a> to see your media in the IPFS gateway.</span>
-					<h3><a href="index.html">Return To Upload.</a></h3>
-				</div>
-			</body>
-		</html>';
 }
 ?>
