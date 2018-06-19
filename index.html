@@ -12,7 +12,8 @@
 					<h2>Upload Your File</h2>
 					<p>Max allowed file size is 500MB.</p>
 					<input class="form-input" type="file" name="file" /><br /><br />
-					<button class="form-button" name="submit" type="submit">Upload</button><br /><br />
+					<button id="click" class="form-button" name="submit" type="submit">Upload</button><br /><br />
+					<img id="bar" style="display:none" src="img/bar.gif" />
 					<p class="disclaimer"><strong>Disclaimer:</strong> Due to the nature of IPFS your content may never be able to be removed entirely from the network. Even if we delete your file from our server, the hash will more than likely still proved the end user with a copy. Please keep this in mind when uploading and never upload anything you do not want to be online forever.</p>
 			</form>
 			
@@ -34,5 +35,10 @@
 			<p class="columned">If you have a Steem account and find this service helpful please <a href="https://steemconnect.com/sign/account-witness-vote?witness=jrswab&approve=1" target="_blank">vote for @jrswab's witness server</a>. Every vote counts no matter how much Steem Power you hold.</p>
 			<footer class="columned">Created by <a href="https://jrswab.com/">J. R. Swab</a></footer>
 		</div>
+		<script>
+			var x = document.getElementByID("bar");
+			document.getElementByID("click").onclick = function() {pgShow()};
+			function pgShow(){ x.style.display = "block"; }
+		</script>
 	</body>
 </html>

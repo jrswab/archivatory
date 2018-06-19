@@ -7,8 +7,6 @@
 	<body>
 		<div class="container">
 			<img class="logo" src="img/Archivatory_logo.png" /><br />
-
-
 <?php
 if (isset($_POST['submit'])) {
 	$file = $_FILES['file'];
@@ -31,7 +29,8 @@ if (isset($_POST['submit'])) {
 				$fileDestination = 'uploads/'.$fileNameNew;
 				move_uploaded_file($fileTmpName, $fileDestination);
 				$output = shell_exec("ipfs add ".$fileDestination." 2>&1");
-				//echo $output."<br />";
+				sleep(10);
+				echo $output."<br />";
 				$dicedOut = explode(' ', $output);
 				end($dicedOut);
 				$hash = prev($dicedOut);
