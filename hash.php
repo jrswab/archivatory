@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 
 	if (in_array($fileActualExt, $allowed)) {
 		if ($fileError === 0) {
-			if ($fileSize < 2362232012) {
+			if ($fileSize < 547608330) {
 				$fileNameNew = uniqid('', true).".".$fileActualExt;
 				$fileDestination = 'uploads/'.$fileNameNew;
 				move_uploaded_file($fileTmpName, $fileDestination);
@@ -24,15 +24,30 @@ if (isset($_POST['submit'])) {
 				$dicedOut = explode(' ', $output);
 				end($dicedOut);
 				$hash = prev($dicedOut);
-				echo"<head><title>Archivatory</title><link rel='stylesheet' type='text/css' href='style.css'></head><div class='container'><img src='img/Archivatory_logo.png' /><br /><div id='upload-form'>".$hash."<br /><br />Copy & paste the line above. <br />Or <a href='https://ipfs.io/ipfs/".$hash."' target='_blank'>click here</a> to see your media in the IPFS gateway.<br /><h2><a href='index.html'>Return To Upload.</a></h2></div></div>";
+				echo '<!DOCTYPE html>
+						<html>
+							<head>
+								<title>Archivatory</title>
+								<link rel="stylesheet" type="text/css" href="style.css">
+							</head>
+							<body>
+								<div class="container">
+									<img class="logo" src="img/Archivatory_logo.png" /><br />
+									<h3>'.$hash.'</h3>
+									<span>Copy and paste the line above to save a copy and use in your favorite decentralized application!</span>
+									<span>Or <a href="https://gateway.ipfs.io/ipfs/'.$hash.'" target="_blank">click here</a> to see your media in the IPFS gateway.</span>
+									<h3><a href="index.html">Return To Upload.</a></h3>
+								</div>
+							</body>
+						</html>';
 			} else {
-				echo "Your file is too big.";
+				echo "Your file is too big. For best results please keep your file under 250MB.";
 			}
 		} else {
 			echo "There was an error during uploading. Please try again.";
 		}
 	} else {
-		echo "This file type is not supported.";
+		echo "Sorry, the ".$fileActualExt." file type is not supported.";
 	}
 }
 ?>
