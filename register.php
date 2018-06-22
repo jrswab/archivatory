@@ -1,6 +1,6 @@
 <?php
 // Include config file
-require_once 'config.php';
+require_once 'config/config.php';
  
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
@@ -94,22 +94,32 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
  
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-</head>
-<body>
-    <div class="container">
-		<img class="logo" src="img/Archivatory_logo.png" />	
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Register</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	</head>	
+	<body>
+		<nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="index.html">Archivatory</a>
+			<ul class="navbar-nav">
+			  <li class="nav-item active">
+				  <a class="nav-link" href="index.html"><span class="sr-only">(current)</span></a>
+			  </li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<a href="login.php" class="btn btn-outline-primary">Login</a>
+			</form>
+		</nav>
+
+		<div id="content" class="container">
+			<div style="text-align:center;width:100%;">
+				<br>
+				<h1>Sign Up For Archivatory!</h1>
+				<h3>Privacy is vital in today's digital age.</h3>
+				<p>Here at Archivatory, we don't ask for your name, email, gender, or anything else that can identify you at a deep level. This being the case, <b>we are unable to recover lost passwords</b> so please use a password manager like <a href="https://bitwarden.com/" target="_blank">Bitwarden</a> to create and store your password.</p>
+			</div>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
@@ -126,6 +136,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
+			<div>
+				<input type="checkbox" name="accept" value="accept" required> I understand that Archivatory or any staff member thereof is unable to recover my password and therefore my account.<br><br>
+			</div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
                 <input type="reset" class="btn btn-default" value="Reset">

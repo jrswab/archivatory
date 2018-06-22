@@ -10,25 +10,16 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
-	<link rel="stylesheet" type="text/css" href="style.css?v=<?=time();?>">
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-</head>
-<body>
-    <div class="page-header container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		  <a class="navbar-brand" href="#">Archivatory</a>
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-			  <li class="nav-item">
-				<a class="nav-link" href="index.html">Home</a>
-			  </li>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>User Data</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	</head>	
+	<body>
+		<nav class="navbar navbar-light bg-light">
+		  <a class="navbar-brand" href="index.html">Archivatory</a>
+			<ul class="nav mr-auto">
 			  <li class="nav-item">
 				<a class="nav-link" href="welcome.php">Upload</a>
 			  </li>
@@ -39,33 +30,36 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<form class="form-inline my-2 my-lg-0">
 			  <a href="logout.php" class="btn btn-danger">Sign Out</a>
 			</form>
-		  </div>
 		</nav>
-	</div>
-	<div class="container">
-		<div style="text-align:center;width:100%;"><h2>Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. This is your personal Archivatory Database! </h2></div>
-<?php
-	include_once 'uploadDBconfig.php';
+		<div id="content" class="container">
+			<div style="text-align:center;width:100%;">
+				<br>
+				<h3>Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. This is your personal Archivatory Database! </h3>
+			</div>
 
-	$sql = "SELECT * FROM ".$_SESSION['username']." ORDER BY date DESC;";
-	$result = mysqli_query($link, $sql);
-	$resultCheck = mysqli_num_rows($result);
+			<?php
+				include_once 'config/uploadDBconfig.php';
+				// query user data
+				$sql = "SELECT * FROM ".$_SESSION['username']." ORDER BY date DESC;";
+				$result = mysqli_query($link, $sql);
+				$resultCheck = mysqli_num_rows($result);
 
-	if ($resultCheck > 0) {
-		echo "<table id='hashTable'";
-		echo "<tr><th><h4>Upload Date</h4></th><th><h4>File Name</h4></th><th><h4>IPFS Hash</h4></th><th><h4>File Size (in bytes)</h4></th></tr>";
-		$count = 0;
-		while ($row = mysqli_fetch_assoc($result)) {
-			if ($count % 2 == 0) {
-				echo "<tr style='background-color:#e5e4e2;'><td>".$row['date']."</td><td>".$row['file_name']."</td><td><a href='https://gateway.ipfs.io/ipfs/".$row['hash']."' target='_blank'>".$row['hash']."</a></td><td>".$row['file_size']."</tr>";
-			} else {
-				echo "<tr><td>".$row['date']."</td><td>".$row['file_name']."</td><td><a href='https://gateway.ipfs.io/ipfs/".$row['hash']."' target='_blank'>".$row['hash']."</td><td>".$row['file_size']."</tr>";
-			}
-			$count++;
-		}
-		echo "</table>";
-	}
-?>
-	</div>
-</body>
+				if ($resultCheck > 0) {
+					// Set up the html table
+					echo "<div class='table-responsive'>";
+					echo "<table class='table table-striped table-sm'>";
+					echo "<thead><tr><th scope='col'>Upload Date</th><th scope='col'>File Name</th><th scope='col'>IPFS Hash</th><th scope='col'>File Size (in bytes)</th></tr></thead>";
+					echo "<tbody>";
+					// loop through users' table and output into html table body	
+					while ($row = mysqli_fetch_assoc($result)) {
+						echo "<tr><td>".$row['date']."</td><td>".$row['file_name']."</td><td><a href='https://gateway.ipfs.io/ipfs/".$row['hash']."' target='_blank'>".$row['hash']."</a></td><td>".$row['file_size']."</tr>";
+					}
+					// end html table
+					echo "</tbody>";
+					echo "</table>";
+					echo "</div>";
+				}
+			?>
+		</div>
+	</body>
 </html>
