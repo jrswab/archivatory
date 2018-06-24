@@ -78,7 +78,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 			<p>Join us on <a href="https://discord.gg/dKDuaST" target="_blank">Discord</a>!</p>
 
-			<p class="alert alert-light">Created by <a href="https://jrswab.com/">J. R. Swab</a> under GPLv3 for the idependent content creators around the world.</p>
+			<p class="alert alert-light">Created by <a href="https://jrswab.com/">J. R. Swab</a> under GPLv3 for the idependent content creators around the world. | Col. 3:17</p>
 		</div>
 
 		<script>

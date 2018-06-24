@@ -48,6 +48,8 @@ if (isset($_POST['submit'])) {
 				$fileNameNew = uniqid('', true).".".$fileActualExt; // give the upload a uniqe name
 				$fileDestination = 'uploads/'.$fileNameNew; // define file upload end location
 				move_uploaded_file($fileTmpName, $fileDestination); // move the file
+				// $initIPFS = shell_exec("ipfs init 2>&1"); // init IPFS for apache user
+				// echo $initIPFS; // output to view any errors with the command above.
 				$output = shell_exec("ipfs add ".$fileDestination." 2>&1"); // Appache runs IPFS upload command
 				$dicedOut = explode(' ', $output); // create an array of the IPFS STDOUT dilimited on spaces
 				end($dicedOut); // Move pointer to the end of the array

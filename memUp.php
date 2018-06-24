@@ -22,12 +22,11 @@ if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) 
 			hash VARCHAR(256) NOT NULL,
 			file_size VARCHAR(256) NOT NULL,
 			id VARCHAR(256) NOT NULL)";
-			
-			// run sql
+
 			$link->query($sql);
 		}
 
-		// echo for testing
+	// echo for testing
         //if ($link->query($sql) === TRUE) {
         //        echo "Table ".$_SESSION['username']."  created successfully";
         //} else {
