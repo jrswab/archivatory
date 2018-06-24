@@ -52,7 +52,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 					echo "<tbody>";
 					// loop through users' table and output into html table body	
 					while ($row = mysqli_fetch_assoc($result)) {
-						echo "<tr><td>".$row['date']."</td><td>".$row['file_name']."</td><td><a href='https://gateway.ipfs.io/ipfs/".$row['hash']."' target='_blank'>".$row['hash']."</a></td><td>".$row['file_size']."</tr>";
+						echo "<tr><td>".$row['date']."</td><td>".$row['file_name']."</td><td><a href='https://ipfs.io/ipfs/".$row['hash']."' target='_blank'>".$row['hash']."</a></td><td>".$row['file_size']."</tr>";
 					}
 					// end html table
 					echo "</tbody>";
