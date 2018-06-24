@@ -22,6 +22,9 @@ if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) 
 			hash VARCHAR(256) NOT NULL,
 			file_size VARCHAR(256) NOT NULL,
 			id VARCHAR(256) NOT NULL)";
+			
+			// run sql
+			$link->query($sql);
 		}
 
 		// echo for testing
@@ -60,7 +63,7 @@ if (isset($_POST['submit'])) {
 
                                 // add info to users' table
 								$sqlAdd = "INSERT INTO ".$_SESSION['username']." (date, file_name, hash, file_size, id) 
-									VALUES ('".date("Y/m/d H:i:s")."', '".$fileName."', ''".$hash."', '".$fileSize."', '".$fileNameNew."');";
+									VALUES ('".date("Y/m/d H:i:s")."', '".$fileName."', '".$hash."', '".$fileSize."', '".$fileNameNew."');";
 								// run INSERT command
                                 $runSql = mysqli_query($link, $sqlAdd);
 
