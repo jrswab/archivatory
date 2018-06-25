@@ -1,24 +1,38 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: login.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Welcome</title>
-		<link rel="stylesheet" type="text/css" href="style.css?v=<?=time();?>">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-	</head>	
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Archivatory</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
 	<body>
 		<nav class="navbar navbar-light bg-light">
 		  <a class="navbar-brand" href="index.html">Archivatory</a>
-			<ul class="navbar-nav">
+			<ul class="nav mr-auto">
 			  <li class="nav-item active">
-				  <a class="nav-link" href="index.html"><span class="sr-only">(current)</span></a>
+					<span class="nav-link" href="welcome.php"><span class="sr-only">(current)</span>Upload</span>
+			  </li>
+			  <li class="nav-item">
+					<a class="nav-link" href="hashtable.php">Your Content</a>
 			  </li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<a href="register.php" class="btn btn-outline-danger">Register</a>&nbsp;&nbsp;
-				<a href="login.php" class="btn btn-outline-primary">Login</a>
+			  <span class="btn btn-outline-info"><?php echo htmlspecialchars($_SESSION['username']); ?></span>
+			  &nbsp;&nbsp;
+			  <a href="logout.php" class="btn btn-outline-danger">Sign Out</a>
 			</form>
 		</nav>
+
 		<div id="content" class="container">
 			<div style="text-align:center;width:100%;">
 				<br>
@@ -26,10 +40,10 @@
 				<h4>More features are coming soon so make sure to join us on <a href="https://discord.gg/dKDuaST" target="_blank">Discord</a> and meet all the other Archivians!</h4>
 			</div>
 			<br>
-			<form id="upload-form" enctype="multipart/form-data" action="hash.php" method="POST">
+			<form id="upload-form" enctype="multipart/form-data" action="memUp.php" method="POST">
 				<div class="text-center">
 					<h2>Upload Your File</h2>
-					<p>Max allowed file size is 25MB.</p>
+					<p>Max allowed file size is 250MB.</p>
 					<input class="form-input" type="file" name="file" />
 				</div>
 				<br><br>
@@ -66,19 +80,8 @@
 
 			<p class="alert alert-light">Created by <a href="https://jrswab.com/">J. R. Swab</a> under GPLv3 for the idependent content creators around the world. | Col. 3:17</p>
 		</div>
+
 		<script>
-			$("input[type=file]").change(function () {
-				var fieldVal = $(this).val();
-
-					// Change the node's value by removing the fake path (Chrome)
-					fieldVal = fieldVal.replace("C:\\fakepath\\", "");
-
-					if (fieldVal != undefined || fieldVal != "") {
-					$(this).next(".custom-file-label").attr('data-content', fieldVal);
-					$(this).next(".custom-file-label").text(fieldVal);
-				}
-			});
-
 			function pgShow() {
 				var bar = document.getElementById("bar");
 				bar.style.display = "block";
