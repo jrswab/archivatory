@@ -4,4 +4,4 @@
 2. Click "Choose File"
 3. Click "Upload"
 4. Wait for the file to upload (progress bar coming soon)
-5. Save the hash and link (user acconts in progress)
+5. Save the hash and link (user accounts coming soon)
