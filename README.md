@@ -19,6 +19,6 @@
 
 ### Set Us As A Peer!
 In order to keep Archivatory from becoming just another "holder-of-files" make sure to set us as one of your IPFS peers:
-'ipfs swarm connect /ip4/139.99.131.59/tcp/6537/ipfs/QmYUTAbwZWck3LW9XZBcHTz2Jaip3mGfYDt3LTXdPLEh23'
+`ipfs swarm connect /ip4/139.99.131.59/tcp/6537/ipfs/QmYUTAbwZWck3LW9XZBcHTz2Jaip3mGfYDt3LTXdPLEh23`
 
 ### Setup script is in the works.
