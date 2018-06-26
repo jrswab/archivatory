@@ -54,7 +54,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<h2>Welcome to Archivatory.</h2>
 			<h4>More features are coming soon so make sure to join us on 
 			<a href="https://discord.gg/dKDuaST" target="_blank">Discord</a> and 
-			meet all the other Archivians!</h4>
+			meet all the other Archivonauts!</h4>
 		</div>
 		<br>
 		<form id="upload-form" enctype="multipart/form-data" action="memUp.php" method="POST">
