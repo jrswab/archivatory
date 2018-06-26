@@ -3,8 +3,8 @@
 1. Head over to https://archivatory.com
 2. Click "Choose File"
 3. Click "Upload"
-4. Wait for the file to upload (progress bar coming soon)
-5. Save the hash and link (user acconts in progress)
+4. Wait for the file to upload
+5. Save the hash and link (user acconts will save the hashes automatically!)
 
 ## Setting Up Your Own Archivatory:
 ### Configure Your php.ini file:
