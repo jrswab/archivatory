@@ -3,8 +3,8 @@
 1. Head over to https://archivatory.com
 2. Click "Choose File"
 3. Click "Upload"
-4. Wait for the file to upload (progress bar coming soon)
-5. Save the hash and link (user acconts in progress)
+4. Wait for the file to upload
+5. Save the hash and link (user accounts save the hashes automatically!)
 
 ## Setting Up Your Own Archivatory:
 ### Configure Your php.ini file:
@@ -19,6 +19,6 @@
 
 ### Set Us As A Peer!
 In order to keep Archivatory from becoming just another "holder-of-files" make sure to set us as one of your IPFS peers:
-'ipfs swarm connect /ip4/139.99.131.59/tcp/6537/ipfs/QmYUTAbwZWck3LW9XZBcHTz2Jaip3mGfYDt3LTXdPLEh23'
+`ipfs swarm connect /ip4/139.99.131.59/tcp/6537/ipfs/QmYUTAbwZWck3LW9XZBcHTz2Jaip3mGfYDt3LTXdPLEh23`
 
 ### Setup script is in the works.
