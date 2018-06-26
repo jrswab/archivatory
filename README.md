@@ -4,7 +4,7 @@
 2. Click "Choose File"
 3. Click "Upload"
 4. Wait for the file to upload
-5. Save the hash and link (user acconts will save the hashes automatically!)
+5. Save the hash and link (user accounts save the hashes automatically!)
 
 ## Setting Up Your Own Archivatory:
 ### Configure Your php.ini file:
