@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
 
 	if (in_array($fileActualExt, $allowed)) { // check if file extension is allowed
 		if ($fileError === 0) { // check for no error codes
-			if ($fileSize < 254321000) { // make sure file size is less than 250MB
+			if ($fileSize < 251000000) { // make sure file size is less than 251MB
 				$fileNameNew = uniqid('', true).".".$fileActualExt; // give the upload a uniqe name
 				$fileDestination = 'uploads/'.$fileNameNew; // define file upload end location
 				move_uploaded_file($fileTmpName, $fileDestination); // move the file
