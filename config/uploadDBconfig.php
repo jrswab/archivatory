@@ -1,8 +1,8 @@
 <?php
 // Database credentials.
 $dbServerName = "localhost";
-$dbUsername = "";
-$dbPassword = "";
+$dbUsername = "root";
+$dbPassword = "denote-audacious-undated-consent-guru-deceiving";
 $dbName = "archivatoryUploads";
  
 // Attempt to connect to MySQL database 

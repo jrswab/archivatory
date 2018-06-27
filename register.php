@@ -92,43 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	mysqli_close($link);
 }
 ?>
- 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Register</title>
-	<link rel="stylesheet" 
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
-	crossorigin="anonymous">
-	<!-- Archivonaut Favicons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
-	<link rel="manifest" href="img/favicons/site.webmanifest">
-	<link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#f51e0f">
-	<link rel="shortcut icon" href="img/favicons/favicon.ico">
-	<meta name="msapplication-TileColor" content="#f51e0f">
-	<meta name="msapplication-config" content="img/favicons/browserconfig.xml">
-	<meta name="theme-color" content="#ffffff">
-	<!-- end favicons -->
-</head>	
-<body>
-	<nav class="navbar navbar-light bg-light">
-		<a class="navbar-brand" href="index.html">Archivatory</a>
-		<ul class="navbar-nav">
-			<li class="nav-item active">
-				<a class="nav-link" href="index.html"><span class="sr-only">(current)</span></a>
-			</li>
-		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<a href="login.php" class="btn btn-outline-primary">Login</a>
-		</form>
-	</nav>
-
-	<div id="content" class="container">
-		<div style="text-align:center;width:100%;">
+<?php include 'config/mainTop.html' ?> 
 			<br>
 			<h1>Sign Up For Archivatory!</h1>
 			<h3>Privacy is vital in today's digital age.</h3>
@@ -154,17 +118,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 							<input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
 							<span class="help-block"><?php echo $confirm_password_err; ?></span>
 					</div>
-		<div>
-			<input type="checkbox" name="accept" value="accept" required> I understand 
-			that Archivatory or any staff member thereof is unable to recover my password 
-			and therefore my account.<br><br>
-		</div>
+					<div>
+						<input type="checkbox" name="accept" value="accept" required> I 
+							understand that Archivatory or any staff member thereof is unable to 
+							recover my password and therefore my account.
+						<br><br>
+					</div>
 					<div class="form-group">
 							<input type="submit" class="btn btn-primary" value="Submit">
 							<input type="reset" class="btn btn-default" value="Reset">
 					</div>
 					<p>Already have an account? <a href="login.php">Login here</a>.</p>
 			</form>
-	</div>    
-</body>
-</html>
+<?php include 'config/bottom.html' ?>
