@@ -77,4 +77,4 @@
 		bar.style.display = "block";
 	}
 </script>
-<?php include 'config/bottom.html' ?>
+<?php include 'config/bottom.html'; ?>

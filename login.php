@@ -73,7 +73,7 @@
 		mysqli_close($link);
 	}
 ?>
-<?php include 'config/mainTop.html' ?>
+<?php include 'config/mainTop.html'; ?>
 				<h2>Welcome Back!</h2>
 				<p>Please fill in your credentials to login.</p>
 		</div>
@@ -94,4 +94,4 @@
 			</div>
 			<p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
 		</form>
-<?php include 'config/bottom.html' ?>
+<?php include 'config/bottom.html'; ?>

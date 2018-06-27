@@ -6,4 +6,4 @@
 		</div>
 		<br>
 		<button class="btn btn-danger">Delete Account</button>
-<?php include 'config/bottom.html' ?>
+<?php include 'config/bottom.html'; ?>

@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	mysqli_close($link);
 }
 ?>
-<?php include 'config/mainTop.html' ?> 
+<?php include 'config/mainTop.html'; ?> 
 			<br>
 			<h1>Sign Up For Archivatory!</h1>
 			<h3>Privacy is vital in today's digital age.</h3>
@@ -130,4 +130,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					</div>
 					<p>Already have an account? <a href="login.php">Login here</a>.</p>
 			</form>
-<?php include 'config/bottom.html' ?>
+<?php include 'config/bottom.html'; ?>
