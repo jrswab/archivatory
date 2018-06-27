@@ -20,7 +20,7 @@
 		echo "<tbody>";
 		// loop through users' table and output into html table body	
 		while ($row = mysqli_fetch_assoc($result)) {
-			echo "<tr><td>".$row['date']."</td><td>".$row['file_name']."</td><td>
+			echo "<tr><td>".$row['date']."</td><td>".$row['file_name']."</td><td style='word-wrap:break-word'>
 			<a href='https://ipfs.io/ipfs/".$row['hash']."' target='_blank'>"
 			.$row['hash']."</a></td><td>".$row['file_size']."</tr>";
 		}
