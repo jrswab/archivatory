@@ -15,14 +15,14 @@
 		echo "		<div class='table-responsive'>";
 		echo "<table class='table table-striped table-sm'>";
 		echo "<thead><tr><th scope='col'>Upload Date</th><th scope='col'>File Name
-		</th><th scope='col'>IPFS Hash</th><th scope='col'>File Size (in bytes)</th>
+		</th><th scope='col'>IPFS Hash</th><th scope='col'>File Size</th>
 		</tr></thead>";
 		echo "<tbody>";
 		// loop through users' table and output into html table body	
 		while ($row = mysqli_fetch_assoc($result)) {
 			echo "<tr><td>".$row['date']."</td><td>".$row['file_name']."</td><td style='word-wrap:break-word'>
 			<a href='https://ipfs.io/ipfs/".$row['hash']."' target='_blank'>"
-			.$row['hash']."</a></td><td>".$row['file_size']."</tr>";
+			.$row['hash']."</a></td><td>".$fileSize = ($row['file_size']/1000000)." MB</tr>";
 		}
 		// end html table
 		echo "</tbody>";
