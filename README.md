@@ -30,10 +30,12 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-```
-`CREATE DATABASE archivatoryUploads;`
 
-*Table creation in this database are done in the `memUp.php` script*
+```
+CREATE DATABASE archivatoryUploads;
+```
+
+*Table creation in `archivatoryUploads` is done in the `memUp.php` script*
 
 ### Add config/congfig.php & config/uploadDBconfig.php
 These two file are needed in order to have the site talk to your databases. They are not included in the package as of June 28th, 2018 to avoid confusion between development and production servers.
