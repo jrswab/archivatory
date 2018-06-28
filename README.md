@@ -31,7 +31,6 @@ CREATE TABLE users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
-```
 CREATE DATABASE archivatoryUploads;
 ```
 
