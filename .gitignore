@@ -1,3 +1,5 @@
 uploads/*
 extra/*
 backups/*
+config/uploadDBconfig.php
+config/config.php
