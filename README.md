@@ -21,8 +21,9 @@ For a great guide check out [Digital Ocean](https://www.digitalocean.com/communi
 
 ### Create Databases and Tables:
 `mysql -u root -p`
-`CREATE DATABASE archivatory;`
 ```
+CREATE DATABASE archivatory;
+
 CREATE TABLE users (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL UNIQUE,
