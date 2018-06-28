@@ -32,7 +32,7 @@
 	  more than likely still proved the end user with a copy. Please keep this 
 	  in mind when uploading and never upload anything you do not want to be online 
 	  forever.</p>
-      <p class="alert alert-warning"><strong>This is still a beta serverice!</strong> 
+      <p class="alert alert-warning"><strong>This is still a beta service!</strong> 
 	  Please do not use this as a backup service. We are still in the early stages 
 	  of Archivatory and don't want you to lose your data. Always save a copy on 
 	  an external hard drive and a separate cloud service for redundancy.</p>
