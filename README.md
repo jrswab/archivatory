@@ -42,19 +42,20 @@ These two file are needed in order to have the site talk to your databases. They
 
 ```
 <?php
-// Database credentials.
-$dbServerName = "localhost";
-$dbUsername = "";
-$dbPassword = "";
-$dbName = "archivatory";
+/* Database credentials. Assuming you are running MySQL */
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', '');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'archivatory');
  
-// Attempt to connect to MySQL database 
-$link = mysqli_connect($dbServerName, $dbUsername, $dbPassword, $dbName);
+/* Attempt to connect to MySQL database */
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
  
 // Check connection
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+
 ```
 #### uploadDBconfig.php
 
