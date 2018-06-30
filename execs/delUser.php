@@ -4,7 +4,7 @@ include 'config/topMem.php';
 require 'config/config.php';
 require 'config/uploadDBconfig.php';
 
-if (isset($_POST['submit'])){
+if (isset($_POST['delAccount'])){
 	$user = htmlspecialchars($_POST['user']);
 	echo '<div class="alert alert-danger" role="alert">';
 		echo '<h2>Deleting '.$user;

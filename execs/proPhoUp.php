@@ -1,4 +1,4 @@
-<?php include 'config/topMem.php';
+<?php include '../config/topMem.php';
 
 if (isset($_POST['submit'])) {
 	$file = $_FILES['file']; // define file
@@ -17,17 +17,19 @@ if (isset($_POST['submit'])) {
 	// allowed file extensions
 	$allowed = array('jpg', 'jpeg', 'png');
 
-	if (in_array($fileActualExt, $allowed)) { // check if file extension is allowed
+	// check if file extension is allowed first
+	if (in_array($fileActualExt, $allowed)) {
 		if ($fileError === 0) { // check for no error codes
-			if ($fileSize < 2202010) { // make sure file size is less than 500MB
-				// give thu upload a unique name
+			if ($fileSize < 2202010) { // make sure file size is less than 2MB
+				// give the upload a unique name
+				echo $_SESSION['username'];
 				$fileNameNew = $_SESSION['username'].".".$fileActualExt;
 				// define file upload end location
 				$fileDestination = '../uploads/profiles/'.$fileNameNew;
 				// move the file
 				move_uploaded_file($fileTmpName, $fileDestination);
 				// return user to settings.php
-				header['Location: ../settings.php'];
+				header('Location: ../settings.php');
 			} else {
 				echo "Your file is too big. For best results please keep your file under 250MB.";
 			}
@@ -39,5 +41,4 @@ if (isset($_POST['submit'])) {
 	}
 }
 
-include 'config/bottom.html';
-
+include '../config/bottom.html';
