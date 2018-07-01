@@ -45,7 +45,5 @@
 		echo "</table>";
 		echo "</div>";
 	}
-	echo $_GET['delete'];
-	echo $rm;
 	include 'config/bottom.html';
 ?>
