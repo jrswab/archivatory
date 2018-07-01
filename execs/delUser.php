@@ -1,8 +1,8 @@
 <?php
 
-include 'config/topMem.php'; 
-require 'config/config.php';
-require 'config/uploadDBconfig.php';
+include '../config/topMem.php'; 
+require '../config/config.php';
+require '../config/uploadDBconfig.php';
 
 if (isset($_POST['delAccount'])){
 	$user = htmlspecialchars($_POST['user']);
@@ -16,18 +16,12 @@ if (isset($_POST['delAccount'])){
 	$runDelUp = mysqli_query($link, $sqlDelUp);
 	$runDelUser = mysqli_query($link, $sqlDelUser);
 
-	$getProPho = shell_exec('ls uploads/profiles/ | grep '.$user;
-	$runDelProPho = shell_exec('rm uploads/profiles/'.$getProPho;
+	$getProPho = shell_exec('ls ../uploads/profiles/ | grep '.$user);
+	shell_exec('rm ../uploads/profiles/'.$getProPho);
 
 	if ($runDelUp) {
 		if ($runDelUser) {
-			if ($runDelProPho){
-				header("Location: index.php");
-			} else {
-				echo 'Could not delete '.$getProPho.;
-				echo '<br /><br /> Please take a screen shot and send it to the 
-				#support thread on our <a href="https://discord.gg/PVNKWDx"> 
-				Discord chat</a>';
+			header("Location: ../index.php");
 			}
 		} else {
 			echo 'Could not delete account. <br />';
@@ -43,8 +37,7 @@ if (isset($_POST['delAccount'])){
 		#support thread on our <a href="https://discord.gg/PVNKWDx"> 
 		Discord chat</a>';
 	}
-}
 
-include 'config/bottom.html';
+include '../config/bottom.html';
 
 ?>

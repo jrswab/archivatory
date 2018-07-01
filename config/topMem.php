@@ -7,6 +7,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 	header("location: login.php");
 	exit;
 }
+$logo = 'img/archieTheArchivonaut.png';
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +34,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">                                               
 <a class="navbar-brand" href="index.php">
-	<img src="img/archieTheArchivonaut.png" width="30" height="30"                                        
-	class="d-line-block align-top" alt="Archivatory-Archie">
+	<?php echo '<img src="'.$logo.'" width="30" height="30"                                        
+	class="d-line-block align-top" alt="Archivatory-Archie">' ?>
 	Archivatory
 </a>                                                                                                    
 <button class="navbar-toggler" type="button" data-toggle="collapse"                                     
