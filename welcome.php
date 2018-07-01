@@ -1,4 +1,12 @@
-<?php include 'config/topMem.php'; ?>
+<?php include 'config/topMem.php';
+
+	$user = htmlspecialchars($_SESSION['username']);
+	$proCheck = shell_exec('ls u/ | grep '.$user);
+
+	if(!$proUser) {
+		header('Location: createProfile.php');
+	}
+?>
 
 			<h2>Welcome to Archivatory.</h2>
 			<h4>More features are coming soon so make sure to join us on 
