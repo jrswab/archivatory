@@ -50,12 +50,9 @@ $logo = 'img/archieTheArchivonaut.png';
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="hashtable.php">Media</a>
-<<<<<<< HEAD
 		</li>
 		<li>
 			<a class="nav-link" href="../profiles/<?php echo htmlspecialchars($_SESSION['username']); ?>">Profile</a>
-=======
->>>>>>> 24d05e6ad402616e1174bc8cb96818f06bbaa780
 		</li>
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
