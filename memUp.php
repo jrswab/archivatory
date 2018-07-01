@@ -14,7 +14,7 @@ include_once 'config/uploadDBconfig.php';
 // Check if a table call 'username' exists
 if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) {
 	if($tableCheck->num_rows == 1) {
-  	echo "Table Exists";
+  	echo " ";
   } else {
 		$sql = "CREATE TABLE ".$_SESSION['username']." (
 		date TIMESTAMP NOT NULL,

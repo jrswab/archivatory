@@ -4,10 +4,20 @@
 		<div class="d-flex flex-column justify-content-center">
 			<div class="d-inline-flex flex-wrap justify-content-center align-items-center">
 				<div id="currentPhoto" style="padding:15px;">
-					<?php $timeIs = time(); $proPho = shell_exec('ls uploads/profiles | grep '
+					<?php
+					$timeIs = time();
+					$proPho = shell_exec('ls uploads/profiles | grep '
 					.htmlspecialchars($_SESSION['username']));  
-					echo '<img src="uploads/profiles/'.$proPho.'?='.$timeIs.'" 
-					class="rounded img-fluid" style="max-height:250px;"/>'; ?>
+
+					if (!$proPho) {
+						echo '<img src="img/archieTheArchivonaut.png" 
+						class="rounded img-fluid" style="max-height:250px;"/>';
+
+					} else {
+						echo '<img src="uploads/profiles/'.$proPho.'?='.$timeIs.'" 
+						class="rounded img-fluid" style="max-height:250px;"/>';
+					}
+					?>
 				</div>
 
 				<div id="uploadPro" class="d-inline-flex flex-column justify-content-center">
@@ -40,12 +50,12 @@
 
 				<form id="delForm" class="d-flex flex-wrap justify-content-center" 
 					action="execs/delUser.php" method="POST">
-					<p style="font-size:2em; text-align:center;">
+					<p style="font-size:1em; text-align:center;">
 						You are about to delete your account.<br />
 						<strong>This process is permanent!</strong><br />
 						Click here only if you understand and would like to continue.&nbsp;&nbsp;
 					</p>
-					<input name="user" style="display:none" 
+					<input name="user" type="text" style="display:none" 
 						value="<?php echo htmlspecialchars($_SESSION['username']); ?>">
 					</input>
 					<button type="submit" name="delAccount" class="btn btn-danger btn-lg">
