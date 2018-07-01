@@ -48,7 +48,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<a class="nav-link" href="welcome.php">Upload</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="hashtable.php">Your Content</a>
+			<a class="nav-link" href="hashtable.php">Media</a>
 		</li>
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
