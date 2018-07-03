@@ -1,11 +1,11 @@
 <?php include 'config/topMem.php';
 
 	$user = htmlspecialchars($_SESSION['username']);
-	$proCheck = shell_exec('ls u/ | grep '.$user);
+	//$proCheck = shell_exec('ls u/ | grep '.$user);
 
-	if(!$proUser) {
-		header('Location: createProfile.php');
-	}
+	//if(!$proUser) {
+	//	header('Location: createProfile.php');
+	//}
 ?>
 
 			<h2>Welcome to Archivatory.</h2>

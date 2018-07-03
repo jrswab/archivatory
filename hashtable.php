@@ -33,8 +33,8 @@
 				<a href="https://ipfs.io/ipfs/'.$row["hash"].'" target="_blank">'
 				.$row["hash"].'</a></td><td>'.$fileSize = ($row["file_size"]/1000000).' MB</td><td>
 			<div class="btn-group">
-					<img src="img/delete.png" width="50" type="button" class="dropdown-toggle" 
-					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
+					<button type="button" class="btn btn-danger dropdown-toggle" 
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Delete</button>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" name="id" href="?delete='.$row["id"].'">Yes, delete forever.</a>
 				</div>
