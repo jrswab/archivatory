@@ -4,18 +4,18 @@ session_start();
 
 // If session variable is not set send to login.php
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-	include 'config/mainTop.php';
+	header("Location: login.php");
 } else {
-	include 'config/topMem.php';
+	include '../../config/topMem.php';
+	$fullLink = "$_SERVER[REQUEST_URI]";
+	$linkArray = explode('/', $fullLink);
+	$user = end($linkArray);
 
 	$timeIs = time();
-	$proPho = shell_exec('ls uploads/profiles | grep '
-		.$user);  
+	$proPho = shell_exec('ls ../../uploads/profiles | grep '
+		.htmlspecialchars($_SESSION['username']));  
 
 }
-$fullURI = "$_SERVER[REQUEST_URI]";
-$URIArray = explode('/', $fullURI);
-$user = end($URIArray);
 
 //shell_exec('mkdir u/'.$user);
 //$userPro = 'u/'.$user.'/index.php';
@@ -27,7 +27,7 @@ $user = end($URIArray);
 		<div class="d-flex flex-column">
 			<div class="d-inline-flex flex-wrap justify-content-left align-items-center">
 				<div id="currentPhoto" style="padding:15px;">
-					<?php echo '<img src="uploads/profiles/'.$proPho.'?='.$timeIs.'" 
+					<?php echo '<img src="../../uploads/profiles/'.$proPho.'?='.$timeIs.'" 
 					class="rounded img-fluid" style="max-height:100px;"/>'; ?>
 				</div>
 
@@ -43,7 +43,7 @@ $user = end($URIArray);
 				<div class="col-2"></div>
 				<div id="playlist" class="col">
 					<h4>Playlist</h4>
-					<p><?php echo $user; echo $dir; ?></p>
+					<p><?php echo prev($linkArray); ?></p>
 				</div>
 			</div>
 		</div>

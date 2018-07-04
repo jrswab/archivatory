@@ -2,12 +2,17 @@
 // Initialize the session
 session_start();
 
+// Finding where the root directory is for Archivatory.com
+$dir = "";
+while (!glob($dir.'hash.php')) {
+	$dir .= '../';
+}
+
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-	header("location: login.php");
+	header("location: ".$dir."login.php");
 	exit;
 }
-$logo = 'img/archieTheArchivonaut.png';
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +39,7 @@ $logo = 'img/archieTheArchivonaut.png';
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">                                               
 <a class="navbar-brand" href="index.php">
-	<?php echo '<img src="'.$logo.'" width="30" height="30"                                        
+	<?php echo '<img src="'.$dir.'img/archieTheArchivonaut.png" width="30" height="30"                                        
 	class="d-line-block align-top" alt="Archivatory-Archie">' ?>
 	Archivatory
 </a>                                                                                                    
@@ -46,19 +51,19 @@ $logo = 'img/archieTheArchivonaut.png';
 <div class="collapse navbar-collapse" id="navbarNav">                                                   
 	<ul class="navbar-nav"> 
 			<li class="nav-item">
-			<a class="nav-link" href="welcome.php">Upload</a>
+			<a class="nav-link" href="<?php echo $dir; ?>welcome.php">Upload</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="hashtable.php">Media</a>
+			<a class="nav-link" href="<?php echo $dir; ?>hashtable.php">Media</a>
 		</li>
 		<li>
-			<a class="nav-link" href="../u/<?php echo htmlspecialchars($_SESSION['username']); ?>">Profile</a>
+			<a class="nav-link" href="u/<?php echo htmlspecialchars($_SESSION['username']); ?>">Profile</a>
 		</li>
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
-		<a href="settings.php" class="btn btn-outline-info"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+		<a href="<?php echo $dir; ?>settings.php" class="btn btn-outline-info"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
 		&nbsp;&nbsp;
-		<a href="logout.php" class="btn btn-outline-danger">Sign Out</a>
+		<a href="<?php echo $dir; ?>logout.php" class="btn btn-outline-danger">Sign Out</a>
 		</form>
 	</div>
 </nav>

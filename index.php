@@ -1,4 +1,4 @@
-<?php include 'config/mainTop.html'; ?> 
+<?php include 'config/mainTop.php'; ?> 
 	<div id="content" class="container">
     <div style="text-align:center;width:100%;">
       <br />
