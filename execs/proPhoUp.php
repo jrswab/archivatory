@@ -1,4 +1,4 @@
-<?php include '../config/topMem.php';
+<?php include '../config/top.php';
 
 if (isset($_POST['submit'])) {
 	$file = $_FILES['file']; // define file

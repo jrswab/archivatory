@@ -1,4 +1,4 @@
-<?php include 'config/mainTop.html'; ?>
+<?php include 'config/top.php'; ?>
 			<h2>Here is your IPFS Hash!</h2>
 			<h4>If you need to upload larger files user accounts can upload files up 
 			to 10x for free! Also, please consider donating while we continue to 

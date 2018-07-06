@@ -73,7 +73,7 @@
 		mysqli_close($link);
 	}
 ?>
-<?php include 'config/mainTop.html'; ?>
+<?php include 'config/top.php'; ?>
 				<h2>Welcome Back!</h2>
 				<p>Please fill in your credentials to login.</p>
 		</div>
