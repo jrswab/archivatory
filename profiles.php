@@ -5,10 +5,17 @@ $timeIs = time();
 
 $fullURI = "$_SERVER[REQUEST_URI]";
 $URIArray = explode('/', $fullURI);
-$user = $URIArray[4];
+$user = $URIArray[2];
 
 $proPho = shell_exec('ls '.$dir.'uploads/profiles | grep '.$user);
 
+$profile = shell_exec('ls '.$dir.'u/ | grep '.$user);
+if(!$profile){
+	shell_exec('mkdir '.$dir.'u/'.$user);
+	shell_exec('touch '.$dir.'u/'.$user.'/index.php');
+	$proPath = '"<?php require \'../../profiles.php\' ?>"';
+	shell_exec("echo ".$proPath." >> u/".$user."/index.php");
+}
 ?>
 
 			<h2></h2>

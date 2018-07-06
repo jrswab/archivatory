@@ -3,6 +3,13 @@ include 'config/top.php';
 include_once 'config/uploadDBconfig.php';
 $user = htmlspecialchars($_SESSION['username']);
 
+if($playlistCheck = $link->query("SELECT playlist FROM '".$_SESSION['username']."'")) {
+	echo '';
+} else {
+	$addPlaylist = "ALTER TABLE ".$_SESSION['username']." ADD playlist TINYINT(1);";
+	$link->query($addPlaylist);
+}
+
 //Check for deletion
 if (!empty($_GET['delete'])) {
 	$sqlDelete = "DELETE FROM ".$user." WHERE id='".$_GET["delete"]."'";
@@ -30,15 +37,15 @@ $resultCheck = mysqli_num_rows($result);
 			<h3>Hi, <b><?php echo htmlspecialchars($_SESSION['username']); ?></b>. 
 			This is your personal Archivatory Database! </h3>
 		</div>
-		<div class='table-responsive'>
-			<table class='table table-striped table-sm'>
+		<div class="table-responsive">
+			<table class="table table-striped table-sm" style="table-layout:fixed">
 				<thead>
 					<tr>
-						<th scope='col'>Playlist</th>
-						<th scope='col'>File Name</th>
-						<th scope='col'>IPFS Hash</th>
-						<th scope='col'>File Size</th>
-						<th scope='col'>Delete?</th>
+						<th scope='col' style="text-align:center">Playlist</th>
+						<th scope='col' style="text-align:center">File Name</th>
+						<th scope='col' style="text-align:center">IPFS Hash</th>
+						<th scope='col' style="text-align:center">File Size</th>
+						<th scope='col' style="text-align:center">Delete?</th>
 					</tr>
 				</thead>
 			<tbody>
@@ -73,13 +80,13 @@ $resultCheck = mysqli_num_rows($result);
 							}	
 							echo '
 							<tr>
-								<td>
+								<td align="center">
 									'.$onList.'
 								</td>	
-								<td>'.$fileName.'</td>
-								<td style="word-wrap:break-word"><a href="https://ipfs.io/ipfs/'.$hash.'" 
+								<td style="word-wrap:break-word" align="center">'.$fileName.'</td>
+								<td style="word-wrap:break-word" align="center"><a href="https://ipfs.io/ipfs/'.$hash.'" 
 									target="_blank">'.$hash.'</a></td>
-								<td>'.$fileSize.' MB</td><td>
+								<td align="center">'.$fileSize.' MB</td><td align="center">
 									<div class="btn-group">
 											<button type="button" class="btn btn-danger dropdown-toggle" 
 											data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Delete</button>

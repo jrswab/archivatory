@@ -23,7 +23,7 @@ if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) 
   	echo " ";
   } else {
 		$sql = "CREATE TABLE ".$_SESSION['username']." (
-		date TIMESTAMP NOT NULL,
+		date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 		file_name VARCHAR(256) NOT NULL,
 		hash VARCHAR(256) NOT NULL,
 		file_size VARCHAR(256) NOT NULL,
