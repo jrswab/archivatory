@@ -1,6 +1,6 @@
 <?php
 
-include '../config/topMem.php'; 
+include '../config/top.php'; 
 require '../config/config.php';
 require '../config/uploadDBconfig.php';
 

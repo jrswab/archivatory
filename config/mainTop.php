@@ -1,3 +1,10 @@
+<?php
+$dir = '';
+while (!glob($dir.'hash.php')) {
+	$dir .= '../';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -22,7 +29,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.php">
-			<img src="img/archieTheArchivonaut.png" width="30" height="30" 
+		<img src="<?php echo $dir; ?>img/archieTheArchivonaut.png" width="30" height="30" 
 			class="d-line-block align-top" alt="Archivatory-Archie">
 			Archivatory
 		</a>
@@ -34,12 +41,12 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link" href="index.php"></a>
+					<a class="nav-link" href="<?php echo $dir; ?>index.php"></a>
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<a href="register.php" class="btn btn-outline-danger">Register</a>&nbsp;&nbsp;
-				<a href="login.php" class="btn btn-outline-primary">Login</a>
+				<a href="<?php echo $dir; ?>register.php" class="btn btn-outline-danger">Register</a>&nbsp;&nbsp;
+				<a href="<?php echo $dir; ?>login.php" class="btn btn-outline-primary">Login</a>
 			</form>
 		</div>
 	</nav>
