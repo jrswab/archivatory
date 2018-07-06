@@ -1,11 +1,14 @@
-<?php include 'config/topMem.php';
+<?php include 'config/top.php';
 
 	$user = htmlspecialchars($_SESSION['username']);
-	//$proCheck = shell_exec('ls u/ | grep '.$user);
+	$proCheck = shell_exec('ls u/ | grep '.$user);
 
-	//if(!$proUser) {
-	//	header('Location: createProfile.php');
-	//}
+	if(!$proCheck) {
+		shell_exec('mkdir u/'.$user);
+		shell_exec('touch u/'.$user.'/index.php');
+		$proPath = '"<?php require \'../../profiles.php\' ?>"';
+		shell_exec("echo ".$proPath." >> u/".$user."/index.php");
+	}
 ?>
 
 			<h2>Welcome to Archivatory.</h2>

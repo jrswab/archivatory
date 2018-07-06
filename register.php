@@ -92,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	mysqli_close($link);
 }
 ?>
-<?php include 'config/mainTop.php'; ?> 
+<?php include 'config/top.php'; ?> 
 			<br>
 			<h1>Sign Up For Archivatory!</h1>
 			<h3>Privacy is vital in today's digital age.</h3>

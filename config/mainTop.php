@@ -1,6 +1,6 @@
 <?php
 $dir = '';
-while (!glob('hash.php')) {
+while (!glob($dir.'hash.php')) {
 	$dir .= '../';
 }
 ?>

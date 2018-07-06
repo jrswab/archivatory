@@ -1,4 +1,4 @@
-<?php include 'config/topMem.php'; ?>
+<?php include 'config/top.php'; ?>
 			<h2>Settings</h2>
 		</div><!-- this close tag relates to the topM.mephp file -->
 		<div class="d-flex flex-column justify-content-center">
@@ -19,7 +19,7 @@
 					}
 					?>
 				</div>
-
+<!-- Upload and display user profile image -->
 				<div id="uploadPro" class="d-inline-flex flex-column justify-content-center">
 					<h5>Upload Profile Image:</h5>
 					<p>Max allowed file size is 2MB</p>
@@ -40,7 +40,17 @@
 				</div>
 
 			</div>
-			<br>
+			<br />
+<!-- User profile bio -->
+			<div id="bio" class="d-inline-flex flex-column">
+				<h5>Bio:</h5>
+				<form id="bio-form" class="form-group" enctype="multipart/form-data" action="execs/bio.php" method="POST">
+					<textarea class="form-control" id="bio-info" rows="4" maxlength="250" name="bioInfo"></textarea>
+					<br /><br />
+					<button id="bioSubmit" class="btn btn-success" name="bioSubmit" type="submit">Submit Bio</button>
+			</div>
+			<br />
+<!-- User accound deletion -->
 			<div class="d-inline-flex justify-content-center">
 			<button id="delButton" class="btn btn-danger" style="width:50%;font-weight:bold;" onclick="pop()">Delete Account</button>
 			<br /><br />

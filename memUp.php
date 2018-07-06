@@ -14,6 +14,12 @@ include_once 'config/uploadDBconfig.php';
 // Check if a table call 'username' exists
 if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) {
 	if($tableCheck->num_rows == 1) {
+		if($playlistCheck = $link->query("SELECT playlist FROM '".$_SESSION['username']."'")) {
+			echo '';
+		} else {
+			$addPlaylist = "ALTER TABLE ".$_SESSION['username']." ADD playlist TINYINT(1);";
+			$link->query($addPlaylist);
+		}
   	echo " ";
   } else {
 		$sql = "CREATE TABLE ".$_SESSION['username']." (
@@ -21,7 +27,8 @@ if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) 
 		file_name VARCHAR(256) NOT NULL,
 		hash VARCHAR(256) NOT NULL,
 		file_size VARCHAR(256) NOT NULL,
-		id VARCHAR(256) NOT NULL)";
+		id VARCHAR(256) NOT NULL,
+		playlist TINYINT(1) NOT NULL)";
 
 		$link->query($sql);
 	}
@@ -55,9 +62,9 @@ if (isset($_POST['submit'])) {
 
 				// add info to users' table
 				$sqlAdd = "INSERT INTO ".$_SESSION['username'].
-					" (date, file_name, hash, file_size, id) 
+					" (date, file_name, hash, file_size, id, playlist) 
 					VALUES ('".date("Y/m/d H:i:s")."', '".$fileName."', '".$hash."', '"
-					.$fileSize."', '".$fileNameNew."');";
+					.$fileSize."', '".$fileNameNew."', 0);";
 				// run INSERT command
 				$runSql = mysqli_query($link, $sqlAdd);
 

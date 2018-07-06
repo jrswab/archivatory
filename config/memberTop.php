@@ -57,7 +57,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 			<a class="nav-link" href="<?php echo $dir; ?>hashtable.php">Media</a>
 		</li>
 		<li>
-			<a class="nav-link" href="u/<?php echo htmlspecialchars($_SESSION['username']); ?>">Profile</a>
+			<a class="nav-link" href="<?php echo $dir; ?>u/<?php echo htmlspecialchars($_SESSION['username']); ?>">Profile</a>
 		</li>
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
