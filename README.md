@@ -80,4 +80,41 @@ if($link === false){
 In order to keep Archivatory from becoming just another "holder-of-files" make sure to set us as one of your IPFS peers:
 `ipfs swarm connect /ip4/139.99.131.59/tcp/6537/ipfs/QmYUTAbwZWck3LW9XZBcHTz2Jaip3mGfYDt3LTXdPLEh23`
 
-### Setup script is in the works.
+### Full setup script is in the works.
+#### Configure IPFS
+```
+<?php
+// have apache set up ipfs
+$initIPFS = shell_exec("ipfs init 2&>1");
+
+// Tell IPFS not to use local network discovery
+$mdnOff = shell_exec("ipfs config --json Discovery.MDNS.Enabled false 2&>1");
+
+// Set IPFS to filter out common local IP addresses
+$filterIPFS = shell_exec("ipfs config --json Swarm.AddrFilters '[
+	\"/ip4/10.0.0.0/ipcidr/8\",
+	\"/ip4/100.64.0.0/ipcidr/10\",
+	\"/ip4/169.254.0.0/ipcidr/16\",
+	\"/ip4/172.16.0.0/ipcidr/12\",
+	\"/ip4/192.0.0.0/ipcidr/24\",
+	\"/ip4/192.0.0.0/ipcidr/29\",
+	\"/ip4/192.0.0.8/ipcidr/32\",
+	\"/ip4/192.0.0.170/ipcidr/32\",
+	\"/ip4/192.0.0.171/ipcidr/32\",
+	\"/ip4/192.0.2.0/ipcidr/24\",
+	\"/ip4/192.168.0.0/ipcidr/16\",
+	\"/ip4/198.18.0.0/ipcidr/15\",
+	\"/ip4/198.51.100.0/ipcidr/24\",
+	\"/ip4/203.0.113.0/ipcidr/24\",
+	\"/ip4/240.0.0.0/ipcidr/4\"
+]' 2&>1");
+
+// Checking for execution of above commands
+echo $initIPFS;
+if ($mdnOff) {
+				echo "MDNS Disabled.";
+}
+if ($filterIPFS) {
+				echo "Swarm filter added.";
+}
+```

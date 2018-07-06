@@ -3,9 +3,11 @@ include 'config/top.php';
 
 $timeIs = time();
 
+// uso URI to grab username since user may not be logged in.
 $fullURI = "$_SERVER[REQUEST_URI]";
 $URIArray = explode('/', $fullURI);
-$user = $URIArray[2];
+$endURL = end($URIArray);
+$user = prev($URIArray);
 
 $proPho = shell_exec('ls '.$dir.'uploads/profiles | grep '.$user);
 
