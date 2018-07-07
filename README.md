@@ -6,6 +6,10 @@
 4. Wait for the file to upload
 5. Save the hash and link (user accounts save the hashes automatically!)
 
+### Set Us As A Peer!
+In order to keep Archivatory from becoming just another "holder-of-files" make sure to set us as one of your IPFS peers:
+`ipfs swarm connect /ip4/139.99.131.59/tcp/6537/ipfs/QmYUTAbwZWck3LW9XZBcHTz2Jaip3mGfYDt3LTXdPLEh23`
+
 ## Setting Up Your Own Archivatory:
 ### Set Up A LAMP Server:
 For a great guide check out [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04)
@@ -75,11 +79,6 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 ```
-
-### Set Us As A Peer!
-In order to keep Archivatory from becoming just another "holder-of-files" make sure to set us as one of your IPFS peers:
-`ipfs swarm connect /ip4/139.99.131.59/tcp/6537/ipfs/QmYUTAbwZWck3LW9XZBcHTz2Jaip3mGfYDt3LTXdPLEh23`
-
 ### Full setup script is in the works.
 #### Configure IPFS
 ```
@@ -118,3 +117,5 @@ if ($filterIPFS) {
 				echo "Swarm filter added.";
 }
 ```
+#### Run IPFS as Apache
+`<?php shell_exec("IPFS_FD_MAX=4096 ipfs daemon &"); ?>`
