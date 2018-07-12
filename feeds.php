@@ -1,6 +1,8 @@
 <?php
-	header("Content-Type: application/rss+xml; charset=ISO-8859-1");
 	include 'config/uploadDBconfig.php';
+
+	// tell php what type of content follows
+	header("Content-Type: application/rss+xml; charset=ISO-8859-1");
 
 	// uso URI to grab username since user may not be logged in.
 	$fullURI = "$_SERVER[REQUEST_URI]";
