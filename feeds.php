@@ -5,7 +5,7 @@
 	header("Content-Type: application/rss+xml; charset=ISO-8859-1");
 
 	// uso URI to grab username since user may not be logged in.
-	$fullURI = "$_SERVER[REQUEST_URI]";
+	$fullURI = $_SERVER['REQUEST_URI'];
 	$URIArray = explode('/', $fullURI);
 	$endURL = end($URIArray);
 	$user = prev($URIArray);
@@ -17,7 +17,7 @@
 		xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" 
 		xmlns:cc="http://cyber.law.harvard.edu/rss/creativeCommonsRssModule.html">';
 	$rssfeed .= '<channel>';
-	
+
 	// unchanging rss info
 	$rssfeed .= '<title>'.$user.'\'s Archivatory Feed</title>';
 	$rssfeed .= '<link>https://archivatory.com/u/'.$user.'/</title>';
@@ -41,8 +41,8 @@
 		}
 	}
 
-$rssfeed .= '</channel>'
-$rssfeed .= '</rss>'
+$rssfeed .= '</channel>';
+$rssfeed .= '</rss>';
 
 echo $rssfeed;
 ?>
