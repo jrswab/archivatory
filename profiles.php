@@ -3,18 +3,30 @@ include 'config/top.php';
 
 $timeIs = time();
 
+// uso URI to grab username since user may not be logged in.
 $fullURI = "$_SERVER[REQUEST_URI]";
 $URIArray = explode('/', $fullURI);
-$user = $URIArray[2];
+$endURL = end($URIArray);
+$user = prev($URIArray);
 
+// Get the full path to user profile photo
 $proPho = shell_exec('ls '.$dir.'uploads/profiles | grep '.$user);
 
+// if the user profile does not exist, create.
 $profile = shell_exec('ls '.$dir.'u/ | grep '.$user);
 if(!$profile){
 	shell_exec('mkdir '.$dir.'u/'.$user);
 	shell_exec('touch '.$dir.'u/'.$user.'/index.php');
 	$proPath = '"<?php require \'../../profiles.php\' ?>"';
 	shell_exec("echo ".$proPath." >> u/".$user."/index.php");
+}
+
+// if the feed.php file does not exist, create.
+$feed = shell_exec('ls '.$dir.'u/'.$user.' | grep feed');
+if(!$feed){
+	shell_exec('touch '.$dir.'u/'.$user.'/feed.php');
+	$feedPath = '"<?php require \'../../feeds.php\' ?>"';
+	shell_exec("echo ".$feedPath." >> u/".$user."/feed.php");
 }
 ?>
 
