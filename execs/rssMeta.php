@@ -8,7 +8,10 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   exit;
 }
 
+// escape user info into variables.
 $user = htmlspecialchars($_SESSION['username']);
+$title = htmlspecialchars($_POST['title']);
+$des = htmlspecialchars($_POST['des']);
 
 // Loging info for database contianing user tables.
 include_once '../config/uploadDBconfig.php';
@@ -16,9 +19,11 @@ include_once '../config/uploadDBconfig.php';
 // Check if a table call 'username' exists
 if ($tableCheck = $link->query("SHOW TABLES LIKE '".$user."'")) {
 	if($tableCheck->num_rows == 1) {
+		// Check if the 'title' column exists
 		if($titleTest = $link->query("SELECT title FROM '".$user."'")) {
 				echo '';
 		} else {
+			// if the title  column does not exist add it and a 'des' column
 			$addTitle = "ALTER TABLE ".$user." ADD title VARCHAR(256);";
 			$link->query($addTitle);
 			$addDes = "ALTER TABLE ".$user." ADD des VARCHAR(60000);";
@@ -27,20 +32,25 @@ if ($tableCheck = $link->query("SHOW TABLES LIKE '".$user."'")) {
 	}
 }
 
+// if the title field was not left blank
 if (!$_POST['title']) {
 	echo '';
 } else {
-	$changeTitle = "UPDATE ".$user." SET title = '".$_POST['title']."', date = date WHERE id = '".$_POST['rowID']."';";
+	// if the title field was filled in add it to the database.
+	$changeTitle = "UPDATE ".$user." SET title = '".$title."', date = date WHERE id = '".$_POST['rowID']."';";
 	$link->query($changeTitle);
 }
 
+// if the description field was not left blank
 if (!$_POST['des']) {
 	echo '';
 } else {
-	$changeDes = "UPDATE ".$user." SET des = '".$_POST['des']."', date = date WHERE id = '".$_POST['rowID']."';";
+	// if the descriptyon field was filled in add it to the database.
+	$changeDes = "UPDATE ".$user." SET des = '".$des."', date = date WHERE id = '".$_POST['rowID']."';";
 	$link->query($changeDes);
 }
 
 $link->close();
 
+// send user back to hashtable.php
 header("location: ../hashtable.php");
