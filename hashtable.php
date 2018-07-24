@@ -82,7 +82,7 @@ $resultCheck = mysqli_num_rows($result);
 						
 						// determine how to show the content
 						if (in_array($ext, $images)){
-							$display = '<embed src="uploads/'.$id.'" width="66%">'; 
+							$display = '<img src="uploads/'.$id.'" />'; 
 						} else if (in_array($ext, $audios)){
 							$display = '
 								<audio controls style="width:100%">
@@ -93,7 +93,7 @@ $resultCheck = mysqli_num_rows($result);
 							$display = '
 								<video width="100%" controls>
 									<source src="uploads/'.$id.'" type="video/'.$ext.'">
-									Your browser does not support the audio tag.
+									Your browser does not support the video tag.
 								</video>';
 						}
 
@@ -101,7 +101,7 @@ $resultCheck = mysqli_num_rows($result);
 						// add a description, grad the link, add to their playlist,
 						// and delete the content from the server.
 						echo '
-						<div class="card border-dark mb-3" style="min-width: 99%">
+						<div class="card border-dark mb-3" style="min-width:99%" >
 							<div class="card-header bg-secondary text-light"><h4>'.$fileName.'</h4></div>
 							<div class="card-body text-dark">
 								<div class="d-flex justify-content-center">'.$display.'</div>
