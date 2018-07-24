@@ -7,7 +7,8 @@ $timeIs = time();
 $fullURI = "$_SERVER[REQUEST_URI]";
 $URIArray = explode('/', $fullURI);
 $endURL = end($URIArray);
-$user = prev($URIArray);
+$rawUser = prev($URIArray);
+$user = htmlspecialchars($rawUser);
 
 // Get the full path to user profile photo
 $proPho = shell_exec('ls '.$dir.'uploads/profiles | grep '.$user);
@@ -52,11 +53,14 @@ if(!$feed){
 			</p>
 
 			<h4>Playlist</h4>
+			<a href="https://archivatory.com/u/<?php echo $user; ?>/feed.php">RSS Feed</a>
 			<div class="table-responsive">
 				<table class="table table-striped table-m">
 					<thead>
 						<tr>
-							<th scope="col">Media</th>
+							<th scope="col">Title</th>
+							<th scope="col">Description</th>
+							<th scope="col">Link</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -73,9 +77,11 @@ if(!$feed){
 								while ($row = mysqli_fetch_assoc($result)) { 
 									echo '
 									<tr>
-										<td>
-											<a href="https://ipfs.io/ipfs/'.$row["hash"].'" 
-												target="_blank">'.$row["file_name"].'</a>
+										<td>'.$row["title"].'</td>
+										<td>'.$row["des"].'</td>
+										<td style="overflow-wrap: break-word;">
+											<a href="https://gateway.ipfs.io/ipfs/'.$row["hash"].'" 
+												target="_blank">'.$row["hash"].'</a>
 										</td>
 									</tr>';
 								}

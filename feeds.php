@@ -7,23 +7,22 @@ while (!glob($dir.'hash.php')) {
 }
 
 	// tell php what type of content follows
-	header("Content-Type: application/rss+xml; charset=ISO-8859-1");
+	header("Content-Type: application/rss+xml; charset=UTF-8");
 
 	// uso URI to grab username since user may not be logged in.
 	$fullURI = $_SERVER['REQUEST_URI'];
 	$URIArray = explode('/', $fullURI);
 	$endURL = end($URIArray);
-	$user = prev($URIArray);
+	$rawUser = prev($URIArray);
+	$user = htmlspecialchars($rawUser);
 
 	// Get the full path to user profile photo
 	$proPho = shell_exec('ls '.$dir.'uploads/profiles/ | grep '.$user);
 
 	// top of rss feed
-	$rssfeed = '<?xml version="1.0" encoding="UTF-8"?>
-	<rss xmlns:dc="http://purl.org/dc/elements/1.1/" 
-		xmlns:content="http://purl.org/rss/1.0/modules/content/" 
-		xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" 
-		xmlns:cc="http://cyber.law.harvard.edu/rss/creativeCommonsRssModule.html">
+	$rssfeed = '
+	<?xml version="1.0" encoding="UTF-8" ?>
+		<rss version="2.0">
 		<channel>';
 
 	// unchanging rss info
@@ -49,8 +48,9 @@ while (!glob($dir.'hash.php')) {
 		while ($row = mysqli_fetch_assoc($result)) { 
 			$rssfeed .= '
 			<item>
-				<title>'.$row["file_name"].'</title>
+				<title>'.$row["title"].'</title>
 				<link>https://ipfs.io/ipfs/'.$row["hash"].'</link>
+				<description>'.$row["des"].'</description>
 				<pubDate>'.$row["date"].'</pubDate>
 			</item>';
 		}
