@@ -12,9 +12,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 include_once 'config/uploadDBconfig.php';
 
 // Check if a table call 'username' exists
-if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) {
+if ($tableCheck = $link->query("SHOW TABLES LIKE '".htmlspecialchars($_SESSION['username'])."'")) {
 	if($tableCheck->num_rows == 1) {
-		if($playlistCheck = $link->query("SELECT playlist FROM '".$_SESSION['username']."'")) {
+		if($playlistCheck = $link->query("SELECT playlist FROM '".htmlspecialchars($_SESSION['username'])."'")) {
 			echo '';
 		} else {
 			$addPlaylist = "ALTER TABLE ".$_SESSION['username']." ADD playlist TINYINT(1);";
@@ -28,7 +28,9 @@ if ($tableCheck = $link->query("SHOW TABLES LIKE '".$_SESSION['username']."'")) 
 		hash VARCHAR(256) NOT NULL,
 		file_size VARCHAR(256) NOT NULL,
 		id VARCHAR(256) NOT NULL,
-		playlist TINYINT(1) NOT NULL)";
+		playlist TINYINT(1) NOT NULL
+		title VARCHAR(256)
+		desc TEXT)";
 
 		$link->query($sql);
 	}
