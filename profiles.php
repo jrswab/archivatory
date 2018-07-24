@@ -56,7 +56,9 @@ if(!$feed){
 				<table class="table table-striped table-m">
 					<thead>
 						<tr>
-							<th scope="col">Media</th>
+							<th scope="col">Title</th>
+							<th scope="col">Description</th>
+							<th scope="col">Link</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -73,9 +75,11 @@ if(!$feed){
 								while ($row = mysqli_fetch_assoc($result)) { 
 									echo '
 									<tr>
-										<td>
-											<a href="https://ipfs.io/ipfs/'.$row["hash"].'" 
-												target="_blank">'.$row["file_name"].'</a>
+										<td>'.$row["title"].'</td>
+										<td>'.$row["des"].'</td>
+										<td style="overflow-wrap: break-word;">
+											<a href="https://gateway.ipfs.io/ipfs/'.$row["hash"].'" 
+												target="_blank">'.$row["hash"].'</a>
 										</td>
 									</tr>';
 								}
