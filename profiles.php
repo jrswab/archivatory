@@ -7,7 +7,8 @@ $timeIs = time();
 $fullURI = "$_SERVER[REQUEST_URI]";
 $URIArray = explode('/', $fullURI);
 $endURL = end($URIArray);
-$user = prev($URIArray);
+$rawUser = prev($URIArray);
+$user = htmlspecialchars($rawUser);
 
 // Get the full path to user profile photo
 $proPho = shell_exec('ls '.$dir.'uploads/profiles | grep '.$user);
@@ -52,6 +53,7 @@ if(!$feed){
 			</p>
 
 			<h4>Playlist</h4>
+			<a href="https://archivatory.com/u/<?php echo $user; ?>/feed.php">RSS Feed</a>
 			<div class="table-responsive">
 				<table class="table table-striped table-m">
 					<thead>
