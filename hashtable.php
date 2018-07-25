@@ -82,7 +82,7 @@ $resultCheck = mysqli_num_rows($result);
 						
 						// determine how to show the content
 						if (in_array($ext, $images)){
-							$display = '<img src="uploads/'.$id.'" />'; 
+							$display = '<img src="uploads/'.$id.'" style="width:100%" />'; 
 						} else if (in_array($ext, $audios)){
 							$display = '
 								<audio controls style="width:100%">
@@ -91,7 +91,7 @@ $resultCheck = mysqli_num_rows($result);
 								</audio>';
 						} else if (in_array($ext, $videos)){
 							$display = '
-								<video width="100%" controls>
+								<video style="width:100%" controls>
 									<source src="uploads/'.$id.'" type="video/'.$ext.'">
 									Your browser does not support the video tag.
 								</video>';
