@@ -38,14 +38,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">                                               
-<a class="navbar-brand" href="<?php 
-	// If session variable is not set index.php will be the default
-	if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-		echo "index.php";
-	} else {
-		echo "welcome.php";
-	}
-?>">
+<a class="navbar-brand" href="<?php echo $dir; ?>welcome.php">
 
 	<?php echo '<img src="'.$dir.'img/archieTheArchivonaut.png" width="30" height="30"                                        
 	class="d-line-block align-top" alt="Archivatory-Archie">' ?>
