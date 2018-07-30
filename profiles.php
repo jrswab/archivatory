@@ -77,23 +77,30 @@ if(!$feed){
 				$ext = strtolower(end($fileExt));
 				$images = array('jpg', 'jpeg', 'png');
 				$audios = array('mp3', 'wav');
-				$videso = array('mp4', 'webm');
+				$videos = array('mp4', 'webm');
 
 				// determine how to show the content
 				if (in_array($ext, $images)){
-					$display = '<img src="'.$dir.'uploads/'.$id.'" style="width: 100%" />';
+					$display = '
+					<div style="width:100%">
+					<img src="'.$dir.'uploads/'.$id.'" style="width: 100%%" />
+					</div>';
 				} else if (in_array($ext, $audios)){
 					$display = '
+					<div style="width:100%">
 					<audio controls style="width:100%">
 						<source src="'.$dir.'uploads/'.$id.'" type="audio/'.$ext.'">
 						Your browser does not support the audio tag.
-					</audio>';
+					</audio>
+					</div>';
 				} else if (in_array($ext, $videos)){
 					$display = '
+					<div style="width:100%">
 					<video controls style="width:100%">
-						<source src="'.$dir.'uploads/'.$id.'" type="vidoe/'.$ext.'">
+						<source src="'.$dir.'uploads/'.$id.'" type="video/'.$ext.'">
 						Your browser does not support the audio tag.
-					</video>';
+					</video>
+					</div>';
 				}
 
 				echo '
