@@ -46,10 +46,11 @@
 				<h5>Bio:</h5>
 				<form id="bio-form" class="form-group" enctype="multipart/form-data" action="execs/bio.php" method="POST">
 					<textarea class="form-control" id="bio-info" rows="4" maxlength="250" name="bioInfo"></textarea>
-					<br /><br />
+					<br />
 					<button id="bioSubmit" class="btn btn-success" name="bioSubmit" type="submit">Submit Bio</button>
+				</form>
 			</div>
-			<br />
+			<br /><br />
 <!-- User accound deletion -->
 			<div class="d-inline-flex justify-content-center">
 			<button id="delButton" class="btn btn-danger" style="width:50%;font-weight:bold;" onclick="pop()">Delete Account</button>

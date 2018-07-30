@@ -38,7 +38,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">                                               
-<a class="navbar-brand" href="index.php">
+<a class="navbar-brand" href="<?php echo $dir; ?>welcome.php">
+
 	<?php echo '<img src="'.$dir.'img/archieTheArchivonaut.png" width="30" height="30"                                        
 	class="d-line-block align-top" alt="Archivatory-Archie">' ?>
 	Archivatory
