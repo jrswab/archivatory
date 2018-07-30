@@ -85,15 +85,15 @@ if(!$feed){
 				} else if (in_array($ext, $audios)){
 					$display = '
 					<audio controls style="width:100%">
-						<source src="'.$dir.'uploads/'.$id.'" type="audio='.$ext.'">
+						<source src="'.$dir.'uploads/'.$id.'" type="audio/'.$ext.'">
 						Your browser does not support the audio tag.
 					</audio>';
 				} else if (in_array($ext, $videos)){
 					$display = '
-					<audio controls style="width:100%">
-						<source src="'.$dir.'uploads/'.$id.'" type="audio='.$ext.'">
+					<video controls style="width:100%">
+						<source src="'.$dir.'uploads/'.$id.'" type="vidoe/'.$ext.'">
 						Your browser does not support the audio tag.
-					</audio>';
+					</video>';
 				}
 
 				echo '
